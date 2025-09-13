@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ghost in the Suburb</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Griffy:wght@400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Green Title Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="main-title">The Ghost in the Suburb</h1>
+            <div class="subtitle">A haunting tale of mysteries in ordinary places</div>
+        </div>
+        <div class="header-animation"></div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#story" class="nav-link active">Story</a></li>
+            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li><a href="#mysteries" class="nav-link">Mysteries</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Story Section -->
+        <section id="story" class="content-section active">
+            <div class="container">
+                <h2>The Story Unfolds</h2>
+                <div class="story-grid">
+                    <div class="story-card" data-reveal="fade-in">
+                        <h3>Chapter 1: The Moving In</h3>
+                        <p>Sarah thought she had found the perfect suburban home. White picket fence, manicured lawn, friendly neighbors. But some houses hold secrets that refuse to stay buried...</p>
+                        <div class="read-more">Read More</div>
+                    </div>
+                    <div class="story-card" data-reveal="fade-in">
+                        <h3>Chapter 2: Strange Occurrences</h3>
+                        <p>It started with footsteps in the attic. Then came the whispers through the walls. The neighbors smiled too widely, their eyes following her every move...</p>
+                        <div class="read-more">Read More</div>
+                    </div>
+                    <div class="story-card" data-reveal="fade-in">
+                        <h3>Chapter 3: The Truth</h3>
+                        <p>The suburban perfection was a facade. Beneath the carefully maintained lawns lay a darkness that had been feeding on the residents for decades...</p>
+                        <div class="read-more">Read More</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="content-section">
+            <div class="container">
+                <h2>Haunting Imagery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-image="suburban-house">
+                        <div class="image-placeholder">🏠</div>
+                        <p>The Perfect House</p>
+                    </div>
+                    <div class="gallery-item" data-image="empty-street">
+                        <div class="image-placeholder">🌙</div>
+                        <p>Moonlit Streets</p>
+                    </div>
+                    <div class="gallery-item" data-image="shadow-figure">
+                        <div class="image-placeholder">👻</div>
+                        <p>The Watching Figure</p>
+                    </div>
+                    <div class="gallery-item" data-image="window">
+                        <div class="image-placeholder">🪟</div>
+                        <p>Eyes in the Window</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mysteries Section -->
+        <section id="mysteries" class="content-section">
+            <div class="container">
+                <h2>Unsolved Mysteries</h2>
+                <div class="mysteries-container">
+                    <div class="mystery-item">
+                        <div class="mystery-icon">🔍</div>
+                        <h3>The Missing Families</h3>
+                        <p>Seven families have disappeared from Maple Street over the past decade. Official records show they "moved away," but their belongings were left behind...</p>
+                    </div>
+                    <div class="mystery-item">
+                        <div class="mystery-icon">🌫️</div>
+                        <h3>The Nightly Fog</h3>
+                        <p>Every night at 3:33 AM, a thick fog rolls through the neighborhood. Those who've ventured out during this time report seeing impossible things...</p>
+                    </div>
+                    <div class="mystery-item">
+                        <div class="mystery-icon">📞</div>
+                        <h3>The Silent Calls</h3>
+                        <p>Residents receive calls from numbers that don't exist. On the other end, only breathing and the faint sound of children playing in the distance...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <div class="container">
+                <h2>Share Your Experience</h2>
+                <div class="contact-form">
+                    <form id="mysteriesForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location:</label>
+                            <input type="text" id="location" name="location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Your Experience:</label>
+                            <textarea id="experience" name="experience" rows="6" required placeholder="Tell us about your supernatural encounter..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Experience</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Ghost -->
+    <div class="floating-ghost">👻</div>
+
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="floating-element" style="--delay: 0s; --duration: 8s;">🌙</div>
+        <div class="floating-element" style="--delay: 2s; --duration: 10s;">⭐</div>
+        <div class="floating-element" style="--delay: 4s; --duration: 12s;">🦇</div>
+        <div class="floating-element" style="--delay: 6s; --duration: 9s;">🌟</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
