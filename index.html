@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ghost in the Suburb</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ecf0f1;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            color: #e74c3c;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .story-section {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .shuffleable {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .shuffleable:hover {
+            background: rgba(52, 152, 219, 0.3);
+            transform: scale(1.02);
+        }
+
+        .hidden-text {
+            opacity: 0.3;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .revealed {
+            opacity: 1;
+            color: #e74c3c;
+            font-weight: bold;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #e74c3c; }
+            to { text-shadow: 0 0 20px #e74c3c, 0 0 30px #e74c3c; }
+        }
+
+        .input-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        #keywordInput {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ecf0f1;
+            width: 300px;
+            text-align: center;
+        }
+
+        #keywordInput::placeholder {
+            color: #bdc3c7;
+        }
+
+        .truck-image {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 3em;
+            position: relative;
+        }
+
+        .truck {
+            display: inline-block;
+            margin: 0 20px;
+            transition: all 0.5s ease;
+        }
+
+        .temporal-effect {
+            animation: temporal-resonance 3s ease-in-out infinite;
+        }
+
+        @keyframes temporal-resonance {
+            0%, 100% { transform: translateX(0) scale(1); opacity: 1; }
+            25% { transform: translateX(-10px) scale(1.1); opacity: 0.7; }
+            50% { transform: translateX(10px) scale(0.9); opacity: 0.9; }
+            75% { transform: translateX(-5px) scale(1.05); opacity: 0.8; }
+        }
+
+        .revelation {
+            display: none;
+            background: rgba(231, 76, 60, 0.1);
+            border: 2px solid #e74c3c;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .keyword-hint {
+            color: #f39c12;
+            font-style: italic;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .progress-indicator {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .progress-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #34495e;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.active {
+            background: #e74c3c;
+            box-shadow: 0 0 10px #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Ghost in the Suburb</h1>
+        
+        <div class="progress-indicator">
+            <div class="progress-dot" id="dot1"></div>
+            <div class="progress-dot" id="dot2"></div>
+            <div class="progress-dot" id="dot3"></div>
+            <div class="progress-dot" id="dot4"></div>
+            <div class="progress-dot" id="dot5"></div>
+        </div>
+
+        <div class="story-section">
+            <p>Persephone sat at her desk, staring at the blank page that had mocked her for weeks. The cursor blinked with mechanical persistence, a digital heartbeat counting down to her deadline. Outside her window, the suburban street stretched endlessly, lined with identical houses that seemed to breathe in unison.</p>
+            
+            <p>She had been tasked with writing about <span class="shuffleable" id="mystery-word">the impossible</span>, but every word felt heavy, anchored to reality by invisible chains. Her grandmother had always said that stories lived in the spaces between what we see and what we know, but Persephone couldn't find those spaces anymore.</p>
+        </div>
+
+        <div class="story-section">
+            <p>Then she noticed them: two trucks parked across from each other on the empty street. Identical in every way – same make, same model, same license plate. The same impossible license plate.</p>
+            
+            <div class="truck-image">
+                <div class="truck" id="truck1">🚛</div>
+                <div class="truck" id="truck2">🚛</div>
+            </div>
+            
+            <p>Persephone rubbed her eyes, but the trucks remained. She checked the time: 3:17 AM. The street should be empty, silent. Yet there they were, <span class="shuffleable" id="temporal-word">existing in defiance of logic</span>, a temporal resonance cascade that made her chest tight with recognition.</p>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="keywordInput" placeholder="Type what you see in the darkness..." />
+            <div class="keyword-hint">Look closer at what doesn't belong...</div>
+        </div>
+
+        <div class="story-section">
+            <p>She had seen this before. In dreams, in half-remembered stories, in the corners of her vision when she was too tired to think straight. The trucks were <span class="hidden-text" id="memory-trigger">a message from someone who understood what it meant to be stuck</span>.</p>
+            
+            <p class="shuffleable" id="ghost-clue">The ghost in the suburb wasn't haunting the houses – it was haunting her mind, whispering the words she couldn't write, showing her the impossible to remind her that stories don't have to follow rules.</p>
+        </div>
+
+        <div class="revelation" id="revelation1">
+            <h3>Recognition Dawning...</h3>
+            <p>The trucks shimmer and she remembers: her father, sitting at this same desk years ago, struggling with the same blank page. He used to tell her about "temporal resonance cascades" – his playful term for when the past and present touched, when memories became more real than reality.</p>
+        </div>
+
+        <div class="story-section">
+            <p>Persephone's fingers found the keyboard. The words that had been hiding in the spaces between trucks, between heartbeats, between what was possible and what was true, began to flow. <span class="shuffleable" id="breakthrough">The ghost wasn't haunting her – it was helping her remember how to see</span>.</p>
+        </div>
+
+        <div class="revelation" id="revelation2">
+            <h3>The Truth Revealed</h3>
+            <p>The ghost in the suburb was never a stranger. It was <span class="revealed">her father</span>, visiting through the impossible, through the very stories he had taught her to tell. The trucks were his signature, his way of saying: "Remember that the impossible is just another word for 'not yet written.'"</p>
+            
+            <p>Her writer's block crumbled like morning frost. The story wasn't stuck – she was. And now, with the trucks keeping watch outside her window, she began to write the impossible.</p>
+        </div>
+
+        <div class="revelation" id="final-revelation">
+            <h3>Writer's Block Broken</h3>
+            <p style="color: #2ecc71; font-weight: bold; text-align: center;">
+                The page is no longer blank.<br>
+                The ghost has done its work.<br>
+                The story begins now.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Game state
+        let discoveredKeywords = new Set();
+        let currentProgress = 0;
+        const maxProgress = 5;
+        
+        // Keywords that trigger revelations
+        const keywords = {
+            'temporal': { progress: 1, reveals: ['memory-trigger'] },
+            'resonance': { progress: 2, reveals: ['revelation1'] },
+            'cascade': { progress: 3, reveals: ['truck1', 'truck2'] },
+            'father': { progress: 4, reveals: ['revelation2'] },
+            'impossible': { progress: 5, reveals: ['final-revelation'] }
+        };
+
+        // Initialize the puzzle
+        function init() {
+            document.getElementById('keywordInput').addEventListener('input', handleKeywordInput);
+            addShuffleListeners();
+            updateProgressIndicator();
+            
+            // Add temporal effect to trucks initially
+            setTimeout(() => {
+                document.getElementById('truck1').classList.add('temporal-effect');
+                document.getElementById('truck2').classList.add('temporal-effect');
+            }, 2000);
+        }
+
+        // Handle keyword input
+        function handleKeywordInput(event) {
+            const input = event.target.value.toLowerCase().trim();
+            
+            for (const [keyword, data] of Object.entries(keywords)) {
+                if (input.includes(keyword) && !discoveredKeywords.has(keyword)) {
+                    discoveredKeywords.add(keyword);
+                    triggerRevelation(keyword, data);
+                    break;
+                }
+            }
+        }
+
+        // Trigger revelation when keyword is found
+        function triggerRevelation(keyword, data) {
+            if (data.progress > currentProgress) {
+                currentProgress = data.progress;
+                updateProgressIndicator();
+                
+                // Reveal elements
+                data.reveals.forEach(elementId => {
+                    const element = document.getElementById(elementId);
+                    if (element) {
+                        if (element.classList.contains('revelation')) {
+                            element.style.display = 'block';
+                        } else {
+                            element.classList.add('revealed');
+                        }
+                    }
+                });
+
+                // Special effects for specific keywords
+                if (keyword === 'cascade') {
+                    enhanceTemporalEffect();
+                } else if (keyword === 'father') {
+                    revealGhost();
+                }
+
+                // Clear input and show progress
+                document.getElementById('keywordInput').value = '';
+                document.getElementById('keywordInput').placeholder = 
+                    currentProgress < maxProgress ? 'Continue searching...' : 'The mystery is solved...';
+            }
+        }
+
+        // Add shuffle effect to shuffleable text
+        function addShuffleListeners() {
+            document.querySelectorAll('.shuffleable').forEach(element => {
+                element.addEventListener('click', () => shuffleText(element));
+            });
+        }
+
+        // Shuffle text effect
+        function shuffleText(element) {
+            const originalText = element.textContent;
+            const characters = 'abcdefghijklmnopqrstuvwxyz ';
+            let iterations = 0;
+            const maxIterations = 10;
+
+            const interval = setInterval(() => {
+                element.textContent = originalText
+                    .split('')
+                    .map((char, index) => {
+                        if (index < iterations) {
+                            return originalText[index];
+                        }
+                        return characters[Math.floor(Math.random() * characters.length)];
+                    })
+                    .join('');
+
+                iterations++;
+
+                if (iterations >= maxIterations) {
+                    clearInterval(interval);
+                    element.textContent = originalText;
+                }
+            }, 50);
+        }
+
+        // Update progress indicator
+        function updateProgressIndicator() {
+            for (let i = 1; i <= maxProgress; i++) {
+                const dot = document.getElementById(`dot${i}`);
+                if (i <= currentProgress) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            }
+        }
+
+        // Enhance temporal effect for trucks
+        function enhanceTemporalEffect() {
+            const trucks = document.querySelectorAll('.truck');
+            trucks.forEach(truck => {
+                truck.style.animation = 'temporal-resonance 1s ease-in-out infinite';
+            });
+        }
+
+        // Reveal the ghost (father) connection
+        function revealGhost() {
+            const ghostClue = document.getElementById('ghost-clue');
+            if (ghostClue) {
+                ghostClue.style.background = 'rgba(231, 76, 60, 0.2)';
+                ghostClue.style.border = '1px solid #e74c3c';
+                ghostClue.style.borderRadius = '5px';
+            }
+        }
+
+        // Easter egg: Konami code for instant solve
+        let konamiSequence = [];
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+
+        document.addEventListener('keydown', (e) => {
+            konamiSequence.push(e.code);
+            if (konamiSequence.length > konamiCode.length) {
+                konamiSequence.shift();
+            }
+            
+            if (konamiSequence.length === konamiCode.length && 
+                konamiSequence.every((key, index) => key === konamiCode[index])) {
+                // Easter egg: reveal all at once
+                Object.entries(keywords).forEach(([keyword, data]) => {
+                    if (!discoveredKeywords.has(keyword)) {
+                        discoveredKeywords.add(keyword);
+                        triggerRevelation(keyword, data);
+                    }
+                });
+            }
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
